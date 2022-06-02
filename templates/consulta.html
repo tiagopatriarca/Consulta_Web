@@ -1,0 +1,14 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+<a href="/pessoa/"> 
+<button type="button">Cadastro de pessoa</button>
+</a>
+<ul> 
+{% for pessoa in pessoas %}
+    <li>{{pessoa.nome_completo}} / {{pessoa.cpf}} / {{pessoa.rua}} / {{pessoa.bairro}}</li> 
+{%endfor %}
+</ul>
+
+{% endblock %}
+

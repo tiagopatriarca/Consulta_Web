@@ -16,12 +16,16 @@ Including another URLconfmodel
 from django.contrib import admin
 from django.urls import path
 from core import views
+from django.views.generic import RedirectView
+
 
 urlpatterns = [
+    path('login/', views.login_user),
+    path('pessoa/', views.pessoa),
+    path('pessoa/submit', views.submit_pessoa),
+    path('logout/', views.logout_user),
     path('admin/', admin.site.urls),
-    path('hello/', views.hello),
-    path('soma/<int:num1>/<int:num2>', views.soma),
-    path('subtracao/<int:um1>/<int:um2>', views.subtracao),
-    path('multiplicacao/<int:nu1>/<int:nu2>', views.multiplicacao),
-    path('divisao/<int:nm1>/<int:nm2>', views.divisao),
+    path('consulta/', views.consulta),
+    path('login/submit', views.submit_login),
+    path('', RedirectView.as_view(url='/consulta') )
 ]

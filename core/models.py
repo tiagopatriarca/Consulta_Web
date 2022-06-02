@@ -1,16 +1,13 @@
-from pickle import FALSE
-from tkinter import CASCADE
 from django.db import models
-from cpf_field.models import CPFField
 
 # Create your models here.
 
 class Pessoa(models.Model):
-    nome_completo = models.CharField(max_length=100, blank=FALSE, null=False)
-    cpf = CPFField('cpf')
-    cep = models.IntegerField(max_length=11, blank=FALSE, null=False)
-    rua = models.CharField(max_length=100, blank=FALSE, null=False)
-    bairro = models.CharField(max_length=100, blank=FALSE, null=False)
+    nome_completo = models.CharField(max_length=100, blank=False, null=False)
+    cpf = models.CharField(max_length=11, blank=False, null=False)
+    cep = models.IntegerField(max_length=11, blank=False, null=False)
+    rua = models.CharField(max_length=100, blank=False, null=False)
+    bairro = models.CharField(max_length=100, blank=False, null=False)
     num = models.CharField(max_length=10, verbose_name='Nº')
     complemento = models.CharField(max_length=100)
     

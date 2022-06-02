@@ -1,0 +1,42 @@
+{% extends "model-page.html" %}
+
+{%block content %}
+
+<h2> Cadastro Pessoa</h2>
+    <form action="submit" method="post">{% csrf_token %}
+    <label>Nome completo: </label>
+    <br>
+    <input type="text" name="nome" size="23">
+    <br>
+    <label>CPF: </label>
+    <br>
+    <input type="text" name="cpf" size="23">
+    <br>
+    <label>CEP: </label>
+    <br>
+    <input type="text" name="cep" size="23">
+    <br>
+    <label>Rua: </label>
+    <br>
+    <input type="text" name="rua" size="23">
+    <br>
+    <label>Bairro: </label>
+    <br>
+    <input type="text" name="bairro" size="23">
+    <br>
+    <label>Nº: </label>
+    <br>
+    <input type="text" name="n" size="23">
+    <br>
+    <label>Complemento: </label>
+    <br>
+    <input type="text" name="complemento" size="23">
+    <br>
+    <button type="submit" name="salvar">Salvar</button>
+    <a href="/">
+    <button type="button" name="salvar">Cancelar</button>
+    </a>
+    <br>
+</form>
+
+{%endblock %}
