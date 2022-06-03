@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -10,6 +11,7 @@ class Pessoa(models.Model):
     bairro = models.CharField(max_length=100, blank=False, null=False)
     num = models.CharField(max_length=10, verbose_name='Nº')
     complemento = models.CharField(max_length=100)
+    criador = models.ForeignKey(User, on_delete=models.CASCADE)
     
 class Provedor(models.Model):
     provedor = models.CharField(max_length=100, blank=True, null=True)
@@ -27,6 +29,7 @@ class Divida(models.Model):
     modelo = models.CharField(max_length=100, blank=True,null=True)
     Serial = models.CharField(max_length=100, blank=True,null=True)
     parimonio = models.CharField(max_length=100, blank=True,null=True)
+    criador = models.ForeignKey(User, on_delete=models.CASCADE)
 
 def __str__(self):
     return self.cpf

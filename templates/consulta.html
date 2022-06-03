@@ -4,9 +4,15 @@
 <a href="/pessoa/"> 
 <button type="button">Cadastro de pessoa</button>
 </a>
+<a href="/divida/"> 
+    <button type="button">Cadastro de divida</button>
+</a>
 <ul> 
 {% for pessoa in pessoas %}
-    <li>{{pessoa.nome_completo}} / {{pessoa.cpf}} / {{pessoa.rua}} / {{pessoa.bairro}}</li> 
+    <li>
+        {{pessoa.nome_completo}} / {{pessoa.cpf}} / {{pessoa.rua}} / {{pessoa.bairro}} 
+        (<a href="/pessoa/?id={{pessoa.id}}"> Editar</a> / <a href="/pessoa/delete/{{pessoa.id}}/">Excluir</a>) 
+    </li>
 {%endfor %}
 </ul>
 

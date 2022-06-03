@@ -1,0 +1,61 @@
+{% extends "model-page.html" %}
+
+{%block content %}
+
+<h2> Cadastro Dividas</h2>
+    <form action="submit" method="post">{% csrf_token %}
+        <input type="number" name="id" value="{{divida.id}}" hidden>
+        <label>Valor: </label>
+        <br>
+        <input type="text" name="valor" size="23" value="{{ divida.valor }}">
+        <br>
+        <label>Status: </label>
+        <br>
+        <select class="form-control" id="status" name="status">
+            <option value="{{ r }}">-------------------------</option>
+                <option value="Ativo">Divida Ativa</option>
+                <option value="Inativo">Divida Inativa</option>
+        </select>
+        <br>
+        <label>Pessoa: </label>
+        <br>
+        <select class="form-control" id="cpf" name="CPF">
+            <option value="{{ s }}">-------------------------</option>
+            {% for s in pessoa %}
+                <option value="{{s}}">{{ s.nome_completo }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label>Provedor: </label>
+        <br>
+        <select class="form-control" id="provedor" name="provedor">
+            <option value="{{ t }}">-------------------------</option>
+            {% for t in prov %}
+                <option value="{{t}}">{{ t.provedor }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label>Equipamento: </label>
+        <br>
+        <input type="text" name="equipamento" size="23" value="{{ divida.equipamento }}">
+        <br>
+        <label>Modelo: </label>
+        <br>
+        <input type="text" name="modelo" size="23" value="{{ divida.modelo }}">
+        <br>
+        <label>Nº de serie: </label>
+        <br>
+        <input type="text" name="serial" size="23" value="{{ dividas.Serial }}">
+        <br>
+        <label>Patrimonio: </label>
+        <br>
+        <input type="text" name="patrimonio" size="23" value="{{ divida.patrimonio }}">
+        <br>
+        <button type="submit" name="salvar">Salvar</button>
+        <a href="/">
+        <button type="button" name="cancelar">Cancelar</button>
+        </a>
+        <br>
+    </form>
+
+{%endblock %}
